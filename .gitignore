@@ -1,0 +1,8 @@
+# Ignore model files
+Backend/models/*.h5
+
+# Ignore Python cache files
+**/__pycache__/
+
+# Ignore other unnecessary files
+*.pyc
