@@ -6,3 +6,9 @@ Backend/models/*.h5
 
 # Ignore other unnecessary files
 *.pyc
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
