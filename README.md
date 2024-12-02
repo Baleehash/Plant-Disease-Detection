@@ -1,1 +1,2 @@
 Backend sepertinya sudah oke sih, akurasi modelnya 0.9184. Pengennya sih bisa lebih tinggi, tapi takutnya device gue tiba-tiba meledak. Udah gue coba juga fungsionalitasnya, baik lewat form upload maupun langsung capture gambar, hasilnya tetep sama. Gue tes dengan cabut daun, terus foto buat ngecek yang upload, dan daun itu gue scan langsung juga hasilnya sama.
+terus udah gua tambahin koneksi database juga pake MySQL buat nyimpen data foto yang di predik itu. next step tinggal mikirin buat deploy frontend nya sih.
