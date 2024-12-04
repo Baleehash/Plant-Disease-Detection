@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Prediction Result - Capture</title>
+</head>
+<body>
+<h1>Prediction Result for Captured Image</h1>
+
+<div>
+    <h2>Prediction Details:</h2>
+    <p><strong>Label:</strong> <span th:text="${label}"></span></p>
+    <p><strong>Confidence:</strong> <span th:text="${confidence}"></span></p>
+</div>
+
+<div>
+    <h3>Description:</h3>
+    <p th:text="${description}"></p>
+</div>
+
+<a href="/">Back to Home</a>
+</body>
+</html>

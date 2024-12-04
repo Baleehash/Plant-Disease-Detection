@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Detection</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<!-- Navbar -->
+<header class="navbar">
+    <div class="container">
+        <a href="#" class="logo">Plant Detector</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#upload">Upload</a></li>
+                <li><a href="#capture">Capture</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Home Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <h1>Welcome to Plant Disease Detection</h1>
+        <p>Identify and understand plant diseases effortlessly.</p>
+    </div>
+</section>
+
+<!-- Upload Section -->
+<section id="upload" class="upload-section">
+    <div class="container">
+        <h2>Upload Image</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="file">Upload an image:</label>
+            <input type="file" id="file" name="file" accept="image/*" required>
+            <input type="hidden" name="userId" value="1">
+            <button type="submit" class="btn">Upload</button>
+        </form>
+    </div>
+</section>
+
+<!-- Capture Section -->
+<section id="capture" class="capture-section">
+    <div class="container">
+        <h2>Capture Image</h2>
+        <button id="startCamera" class="btn">Start Camera</button>
+        <button id="captureButton" class="btn" style="display: none;">Capture</button>
+        <video id="video" autoplay style="display: none; border: 1px solid #ccc;"></video>
+        <canvas id="canvas" style="display: none;"></canvas>
+        <form action="/capture" method="post" enctype="multipart/form-data" id="captureForm">
+            <input type="file" name="file" id="hiddenFileInput" style="display: none;">
+            <button type="submit" style="display: none;" id="submitCapture">Submit</button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Plant Disease Detection | All Rights Reserved</p>
+    </div>
+</footer>
+
+<script>
+    const startCameraButton = document.getElementById("startCamera");
+    const captureButton = document.getElementById("captureButton");
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("canvas");
+    const submitCapture = document.getElementById("submitCapture");
+    const hiddenFileInput = document.getElementById("hiddenFileInput");
+
+    let stream;
+
+    // Start Kamera
+    startCameraButton.addEventListener("click", async () => {
+        try {
+            stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            video.srcObject = stream;
+            video.style.display = "block";
+            captureButton.style.display = "inline-block";
+        } catch (error) {
+            alert("Unable to access camera: " + error.message);
+        }
+    });
+
+    // Capture Gambar
+    captureButton.addEventListener("click", () => {
+        const context = canvas.getContext("2d");
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+
+        // Gambar frame dari video ke canvas
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        // Convert canvas ke Blob
+        canvas.toBlob((blob) => {
+            const file = new File([blob], "capture.jpg", { type: "image/jpeg" });
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            hiddenFileInput.files = dataTransfer.files;
+
+            // Submit form
+            submitCapture.click();
+        });
+
+        // Matikan kamera setelah capture
+        stream.getTracks().forEach(track => track.stop());
+        video.style.display = "none";
+        captureButton.style.display = "none";
+    });
+</script>
+</body>
