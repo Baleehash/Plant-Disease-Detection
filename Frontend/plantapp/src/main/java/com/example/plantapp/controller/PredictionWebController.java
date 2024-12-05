@@ -27,7 +27,7 @@ public class PredictionWebController {
     public String uploadImage(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
         // Simpan gambar yang diunggah
         String uploadedFileName = "uploaded_" + file.getOriginalFilename();
-        Path uploadPath = Paths.get("plantapp/src/main/resources/static/images/" + uploadedFileName);
+        Path uploadPath = Paths.get("plantapp/src/main/resources/static/saved-pictures/" + uploadedFileName);
         Files.write(uploadPath, file.getBytes());
 
         // Prediksi
@@ -48,7 +48,7 @@ public class PredictionWebController {
     public String captureImage(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
         // Simpan gambar yang ditangkap
         String capturedFileName = "captured_" + file.getOriginalFilename();
-        Path capturePath = Paths.get("plantapp/src/main/resources/static/images/" + capturedFileName);
+        Path capturePath = Paths.get("plantapp/src/main/resources/static/saved-pictures/" + capturedFileName);
         Files.write(capturePath, file.getBytes());
 
         // Prediksi

@@ -148,7 +148,7 @@ section .btn {
 }
 
 section .btn:hover {
-    background-color: #1F4529;
+    background-color: #264653;
     transform: translateY(-3px); /* Efek tombol melayang */
 }
 
