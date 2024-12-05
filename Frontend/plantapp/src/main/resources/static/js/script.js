@@ -1,47 +1,39 @@
-const startCameraButton = document.getElementById("startCamera");
+const startCamera = document.getElementById("startCamera");
+const stopCamera = document.getElementById("stopCamera");
 const captureButton = document.getElementById("captureButton");
 const video = document.getElementById("video");
-const canvas = document.getElementById("canvas");
-const submitCapture = document.getElementById("submitCapture");
-const hiddenFileInput = document.getElementById("hiddenFileInput");
 
 let stream;
 
-// Event listener untuk tombol Start Camera
-startCameraButton.addEventListener("click", async () => {
+// Start Camera
+startCamera.addEventListener("click", async () => {
     try {
-        // Minta akses kamera
         stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        video.srcObject = stream; // Tampilkan video dari kamera
-        video.style.display = "block"; // Tampilkan elemen video
-        captureButton.style.display = "inline-block"; // Tampilkan tombol Capture
+        video.srcObject = stream;
+        video.style.display = "block";
+        startCamera.style.display = "none";
+        stopCamera.style.display = "inline-block";
+        captureButton.style.display = "inline-block";
     } catch (error) {
-        alert("Unable to access camera: " + error.message); // Error jika akses kamera ditolak
+        alert("Camera access denied!");
     }
 });
 
-// Event listener untuk tombol Capture
+// Stop Camera
+stopCamera.addEventListener("click", () => {
+    stream.getTracks().forEach((track) => track.stop());
+    video.style.display = "none";
+    startCamera.style.display = "inline-block";
+    stopCamera.style.display = "none";
+    captureButton.style.display = "none";
+});
+
+// Capture Image
 captureButton.addEventListener("click", () => {
+    const canvas = document.getElementById("canvas");
     const context = canvas.getContext("2d");
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
-
-    // Gambar frame dari video ke canvas
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-    // Convert canvas ke Blob
-    canvas.toBlob((blob) => {
-        const file = new File([blob], "capture.jpg", { type: "image/jpeg" });
-        const dataTransfer = new DataTransfer();
-        dataTransfer.items.add(file);
-        hiddenFileInput.files = dataTransfer.files;
-
-        // Submit form
-        submitCapture.click();
-    });
-
-    // Matikan kamera setelah capture
-    stream.getTracks().forEach(track => track.stop());
-    video.style.display = "none";
-    captureButton.style.display = "none";
+    canvas.style.display = "block";
 });

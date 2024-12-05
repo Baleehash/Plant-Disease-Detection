@@ -1,11 +1,12 @@
 /* General Reset */
 body, h1, h2, p, ul, li, a {
+    height: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+html, body {
     font-family: 'Poppins', Arial, sans-serif;
     line-height: 1.6;
     background-color: #f9f9f9;
@@ -19,12 +20,12 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Menambah bayangan lebih halus */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
 }
 
 .navbar:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Efek saat navbar ter-hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .navbar .container {
@@ -66,11 +67,14 @@ body {
 }
 
 /* Hero Section */
-.hero {
-    background: linear-gradient(to right, #47663B, #1F4529);
-    color: #fff;
-    padding: 58px 20px;
+.hero .container{
+    color: #1F4529;
+    padding: 60px 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero h1 {
@@ -79,26 +83,134 @@ body {
 }
 
 .hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
+    font-size: 0.9rem;
+    max-width: 70%;
     margin: auto;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+}
+
+/* Animasi Hero Section */
+.hero p {
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards; /* Animasi selama 2 detik */
+}
+
+/* Animasi Keyframes */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .hero .btn {
-    margin-top: 50px;
-    margin-bottom: 30px;
+    margin-top: 40px;
+    margin-bottom: 10px;
     padding: 15px 30px;
-    font-size: 1.2rem;
-    border: 2px solid #fff;
-    background-color: transparent;
+    font-size: 1rem;
+    border: 2px;
+    background-color: #41B06E;
     transition: all 0.3s;
 }
 
 .hero .btn:hover {
-    background-color: #fff;
-    color: #1F4529;
+    background-color: #1F4529;
+    color: #ffffff;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-section .card {
+        width: 100%;
+    }
+}
+
+/* About Section */
+.about-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.about-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.about-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.image-grid img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+    max-width: 500px;
+    text-align: left;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    color: #264653;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #6b6b6b;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-images {
+        margin-bottom: 20px;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+}
+
 
 /* Sections */
 section {
@@ -108,39 +220,15 @@ section {
 
 section h2 {
     font-size: 2.5rem;
-    color: #47663B;
+    color: #41B06E;
     margin-bottom: 20px;
 }
 
-section p {
-    margin-bottom: 30px;
-    font-size: 0.9rem;
-    color: #f9f9f9;
-    overflow: hidden;
-    border-right: 2px solid #f9f9f9;
-    white-space: nowrap;
-    width: 0;
-    animation: typing 5s steps(40, end), blink 0.5s step-end infinite;
-    animation-iteration-count: infinite;
-}
-
-/* Efek mengetik */
-@keyframes typing {
-    0% {
-        width: 0;
-    }
-    50% {
-        width: 100%; /* Muncul seluruh teks */
-    }
-    100% {
-        width: 0; /* Reset ke awal */
-    }
-}
 
 /* Button Styling */
 section .btn {
     padding: 20px 30px;
-    background-color: #47663B;
+    background-color: #41B06E;
     color: #fff;
     border-radius: 30px;
     font-size: 1.1rem;
@@ -153,14 +241,39 @@ section .btn:hover {
 }
 
 /* Features Section */
+.features-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.features-section .section-description {
+    font-size: 1rem;
+    color: #6b6b6b;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.features-section h2 {
+    font-size: 2.5rem;
+    color: #1F4529;
+    margin-bottom: 20px;
+}
+
+.features-section .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
 .features-section .card {
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 300px;
-    text-align: center;
     transition: transform 0.3s, box-shadow 0.3s ease;
 }
 
@@ -186,43 +299,122 @@ section .btn:hover {
     color: #6b6b6b;
 }
 
+/* Section Spacing */
+.upload-capture-section .section-description {
+    font-size: 1rem;
+    color: #6b6b6b;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.upload-capture-section h2 {
+    font-size: 2.5rem;
+    color: #1F4529;
+    margin-bottom: 20px;
+}
+
+/* Grid Layout */
+.upload-capture-section .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Card Styling */
+.upload-capture-section .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Fixed Height for Upload Card */
+.upload-capture-section .card-fixed-height {
+    height: 350px;
+}
+
+/* Text Styling */
+.upload-capture-section .card h3 {
+    font-size: 1.5rem;
+    color: #264653;
+    margin-bottom: 15px;
+}
+
+.upload-capture-section .card p {
+    font-size: 1rem;
+    color: #6b6b6b;
+    margin-bottom: 20px;
+}
+
+/* Label and Input */
+.upload-capture-section .file-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Button Styling */
+.upload-capture-section .btn {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    background-color:#41B06E;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover Effect */
+.upload-capture-section .btn:hover {
+    background-color: #1F4529;
+    transform: translateY(3px);
+}
+
+/* Camera Buttons Spacing */
+.upload-capture-section .camera-buttons {
+    margin-top: 10px;
+}
+
 /* Footer */
 .footer {
-    background-color: #264653;
-    color: #fff;
+    margin-top: auto;
+    color: #1F4529;
     text-align: center;
-    padding: 20px 0;
+    padding: 60px 0px;
     font-size: 0.9rem;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .footer a {
     color: #2a9d8f;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .footer a:hover {
     text-decoration: underline;
-    color: #fff;
+    color: #1F4529;
 }
 
-/* Responsive Design */
+/* Responsivitas untuk footer */
 @media (max-width: 768px) {
-    .navbar .nav-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .features-section .card {
-        width: 100%;
+    .footer {
+        padding: 15px 10px;
+        font-size: 0.8rem;
     }
 }

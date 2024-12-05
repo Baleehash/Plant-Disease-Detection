@@ -14,9 +14,9 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#upload">Upload</a></li>
-                <li><a href="#capture">Capture</a></li>
-                <li><a href="#features">Diseases</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#diseases">Diseases</a></li>
+                <li><a href="#analysis">Analysis</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -27,115 +27,133 @@
 <section id="home" class="hero">
     <div class="container">
         <h1>Keep Your Plants Thriving with Chloris</h1>
-        <p>The ultimate tool for protecting your crops and ensuring healthy growth.</p>
-        <a href="#upload" class="btn">Get Started</a>
+        <p class="typing-effect">The ultimate tool for protecting your crops and ensuring healthy growth. Chloris helps you easily identify plant diseases and offers detailed analysis for better crop management. Stay ahead of plant health issues and optimize your farming success.</p>
+        <a href="#home" class="btn">Get Started</a>
     </div>
 </section>
 
-<!-- Upload Section -->
-<section id="upload" class="upload-section">
+<!-- About Section -->
+<section id="about" class="about-section">
     <div class="container">
-        <h2>Upload Image</h2>
-        <p>Upload an image of your plant to identify potential diseases.</p>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <label for="file">Upload an image:</label>
-            <input type="file" id="file" name="file" accept="image/*" required>
-            <input type="hidden" name="userId" value="1">
-            <button type="submit" class="btn">Upload</button>
-        </form>
+        <div class="about-grid">
+            <div class="about-images">
+                <div class="image-grid">
+                    <img src="about-image1.jpg" alt="Plant Analysis 1">
+                </div>
+            </div>
+            <div class="about-text">
+                <h2>About Chloris</h2>
+                <p>
+                    Chloris is an innovative plant analysis tool designed to help farmers and gardeners detect and address
+                    plant diseases efficiently. By combining state-of-the-art technology with user-friendly design, Chloris
+                    ensures a healthier and more productive agricultural experience.
+                </p>
+                <p>
+                    Whether you're protecting your crops or nurturing your home garden, Chloris empowers you with the insights
+                    needed to keep your plants thriving.
+                </p>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Capture Section -->
-<section id="capture" class="capture-section">
-    <div class="container">
-        <h2>Capture Image</h2>
-        <p>Use your camera to capture a real-time image of your plant.</p>
-        <button id="startCamera" class="btn">Start Camera</button>
-        <button id="captureButton" class="btn" style="display: none;">Capture</button>
-        <video id="video" autoplay style="display: none; border: 1px solid #ccc;"></video>
-        <canvas id="canvas" style="display: none;"></canvas>
-        <form action="/capture" method="post" enctype="multipart/form-data" id="captureForm">
-            <input type="file" name="file" id="hiddenFileInput" style="display: none;">
-            <button type="submit" style="display: none;" id="submitCapture">Submit</button>
-        </form>
-    </div>
-</section>
 
 <!-- Features Section -->
-<section id="features" class="features-section">
+<section id ="diseases" class="features-section">
     <div class="container">
-        <h2>Our Features</h2>
-        <div class="card">
-            <img src="plant-healthy.jpg" alt="Healthy Plant">
-            <h3>Healthy Plant Identification</h3>
-            <p>Easily identify plants that are in good condition.</p>
+        <h2>Disease Library</h2>
+        <p class="section-description">
+            Explore a curated library of plant diseases to identify and understand the conditions affecting your crops.
+            Gain insights into common symptoms, preventive measures, and solutions for healthier plants.
+        </p>
+        <div class="grid-container">
+            <div class="card">
+                <img src="plant-healthy.jpg" alt="Apple Scab">
+                <h3>Apple Scab</h3>
+                <p>A fungal disease affecting apple trees, causing dark spots on leaves and fruits.</p>
+            </div>
+            <div class="card">
+                <img src="plant-disease.jpg" alt="Black Rot">
+                <h3>Black Rot</h3>
+                <p>A common apple disease caused by fungi, leading to fruit decay and leaf discoloration.</p>
+            </div>
+            <div class="card">
+                <img src="plant-disease.jpg" alt="Cedar Apple Rust">
+                <h3>Cedar Apple Rust</h3>
+                <p>A fungal disease requiring junipers and apple trees, causing yellow-orange spots on leaves.</p>
+            </div>
+            <div class="card">
+                <img src="plant-healthy.jpg" alt="Healthy Apple">
+                <h3>Healthy Apple</h3>
+                <p>Healthy apple trees with no visible signs of disease or pest damage.</p>
+            </div>
+            <div class="card">
+                <img src="plant-healthy.jpg" alt="Healthy Blueberry">
+                <h3>Healthy Blueberry</h3>
+                <p>Blueberry plants showing no signs of disease, ensuring a bountiful harvest.</p>
+            </div>
+            <div class="card">
+                <img src="plant-disease.jpg" alt="Powdery Mildew">
+                <h3>Powdery Mildew</h3>
+                <p>A fungal disease affecting cherries, characterized by white powdery spots on leaves.</p>
+            </div>
+            <div class="card">
+                <img src="plant-healthy.jpg" alt="Healthy Cherry">
+                <h3>Healthy Cherry</h3>
+                <p>Cherry trees in optimal health with glossy green leaves and vibrant fruits.</p>
+            </div>
+            <div class="card">
+                <img src="plant-disease.jpg" alt="Gray Leaf Spot">
+                <h3>Gray Leaf Spot</h3>
+                <p>A fungal disease affecting maize, causing gray spots on leaves and reducing yield.</p>
+            </div>
         </div>
-        <div class="card">
-            <img src="plant-disease.jpg" alt="Diseased Plant">
-            <h3>Detailed Disease Analysis</h3>
-            <p>Get detailed insights into identified diseases.</p>
+    </div>
+</section>
+
+<!-- Analysis Tools -->
+<section id="analysis" class="upload-capture-section">
+    <div class="container">
+        <h2>Plant Analysis Tools</h2>
+        <p class="section-description">
+            Effortlessly diagnose your plant's health with our upload and capture features.
+            Use either method to start analyzing your plants today!
+        </p>
+        <div class="grid-container">
+            <!-- Upload Feature -->
+            <div class="card card-fixed-height">
+                <h3>Upload Plant Image</h3>
+                <p>Snap and upload an image of your plant. Our system will quickly analyze it and identify potential diseases.</p>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <label for="file" class="file-label">Choose an image:</label>
+                    <input type="file" id="file" name="file" accept="image/*" required>
+                    <button type="submit" class="btn">Upload</button>
+                </form>
+            </div>
+
+            <!-- Capture Feature -->
+            <div class="card">
+                <h3>Real-Time Capture</h3>
+                <p>Activate your device’s camera to capture live images of your plant for real-time analysis and feedback.</p>
+                <video id="video" autoplay style="display: none; border: 1px solid #ccc; margin-top: 15px;"></video>
+                <canvas id="canvas" style="display: none;"></canvas>
+                <div class="camera-buttons">
+                    <button id="startCamera" class="btn">Start Camera</button>
+                    <button id="stopCamera" class="btn" style="display: none;">Stop Camera</button>
+                    <button id="captureButton" class="btn" style="display: none;">Capture</button>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Footer -->
-<footer class="footer">
+<footer id="contact" class="footer">
     <div class="container">
         <p>&copy; 2024 Plant Disease Detection | All Rights Reserved</p>
         <p>Follow us on <a href="#">Instagram</a>, <a href="#">Facebook</a>, and <a href="#">Twitter</a>.</p>
     </div>
 </footer>
-
-<!-- JavaScript -->
-<script>
-    const startCameraButton = document.getElementById("startCamera");
-    const captureButton = document.getElementById("captureButton");
-    const video = document.getElementById("video");
-    const canvas = document.getElementById("canvas");
-    const submitCapture = document.getElementById("submitCapture");
-    const hiddenFileInput = document.getElementById("hiddenFileInput");
-
-    let stream;
-
-    // Event listener untuk tombol Start Camera
-    startCameraButton.addEventListener("click", async () => {
-        try {
-            // Minta akses kamera
-            stream = await navigator.mediaDevices.getUserMedia({ video: true });
-            video.srcObject = stream; // Tampilkan video dari kamera
-            video.style.display = "block"; // Tampilkan elemen video
-            captureButton.style.display = "inline-block"; // Tampilkan tombol Capture
-        } catch (error) {
-            alert("Unable to access camera: " + error.message); // Error jika akses kamera ditolak
-        }
-    });
-
-    // Event listener untuk tombol Capture
-    captureButton.addEventListener("click", () => {
-        const context = canvas.getContext("2d");
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-
-        // Gambar frame dari video ke canvas
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-        // Convert canvas ke Blob
-        canvas.toBlob((blob) => {
-            const file = new File([blob], "capture.jpg", { type: "image/jpeg" });
-            const dataTransfer = new DataTransfer();
-            dataTransfer.items.add(file);
-            hiddenFileInput.files = dataTransfer.files;
-
-            // Submit form
-            submitCapture.click();
-        });
-
-        // Matikan kamera setelah capture
-        stream.getTracks().forEach(track => track.stop());
-        video.style.display = "none";
-        captureButton.style.display = "none";
-    });
-</script>
+<script th:src="@{/js/script.js}"></script>
 </body>
 </html>
