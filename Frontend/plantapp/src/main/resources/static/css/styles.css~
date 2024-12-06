@@ -67,13 +67,13 @@ body, html {
     font-size: 1rem;
     padding: 5px 10px;
     transition: all 0.3s;
-    font-weight: 600;
+    font-weight: 600; /* Menambah ketebalan font untuk tampilan lebih berani */
 }
 
 .navbar .nav-links a:hover {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
-    transform: translateY(-3px);
+    transform: translateY(-3px); /* Efek tombol melayang saat hover */
 }
 
 .container {
@@ -127,19 +127,19 @@ body, html {
     margin-bottom: 10px;
     padding: 15px 30px;
     font-size: 1rem;
-    border: 2px solid #47A992;
-    background-color: transparent;
-    color: #47A992;
-    border-radius: 25px;
+    border: 2px solid #47A992; /* Outline tombol */
+    background-color: transparent; /* Warna default transparan */
+    color: #47A992; /* Warna teks default */
+    border-radius: 25px; /* Tambahkan radius untuk estetika */
     cursor: pointer;
-    transition: all 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk efek */
 }
 
 .hero .btn:hover {
-    background-color: #47A992;
-    color: #ffffff;
-    border: 2px solid #47A992;
-    box-shadow: 0 0 10px #47A992, 0 0 20px #47A992;
+    background-color: #47A992; /* Warna latar saat hover */
+    color: #ffffff; /* Ubah warna teks menjadi putih */
+    border: 2px solid #47A992; /* Outline tetap */
+    box-shadow: 0 0 10px #47A992, 0 0 20px #47A992; /* Efek glow */
 }
 
 
@@ -391,21 +391,21 @@ section .btn:hover {
     position: relative;
     overflow: hidden;
     min-height: 350px;
-    transition: height 0.3s ease;
+    transition: height 0.3s ease; /* Animasi perubahan tinggi */
 }
 
 /* Card Upload Fixed Height */
 .upload-capture-section .card-upload {
-    height: 350px;
+    height: 350px; /* Pastikan tinggi card upload tetap */
 }
 
 /* Video Styling */
 #video {
-    display: none;
-    width: 100%;
+    display: none; /* Video default tersembunyi */
+    width: 100%; /* Video memenuhi lebar card */
     height: auto;
-    max-height: 500px;
-    object-fit: contain;
+    max-height: 500px; /* Batas tinggi video agar tetap proporsional */
+    object-fit: contain; /* Skala video tanpa distorsi */
     border-radius: 5px;
     margin-top: 10px;
 }
@@ -421,8 +421,8 @@ section .btn:hover {
 .camera-buttons {
     margin-top: 15px;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: column; /* Susun tombol secara vertikal */
+    gap: 10px; /* Jarak antar tombol */
 }
 
 /* Text Styling */
@@ -553,7 +553,7 @@ section .btn:hover {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Posisikan lebih ke kanan */
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -631,10 +631,10 @@ section .btn:hover {
 
 @media (max-width: 768px) {
     .footer-container {
-        flex-direction: column;
+        flex-direction: column; /* Susun elemen secara vertikal */
         align-items: center;
         text-align: center;
-        gap: 30px;
+        gap: 30px; /* Tambahkan jarak antar elemen */
     }
 
     .footer-left,
@@ -647,16 +647,16 @@ section .btn:hover {
     /* Kontak - Footer Left */
     .footer-left {
         order: 1;
-        margin-bottom: 20px;
+        margin-bottom: 20px; /* Jarak dengan elemen di bawah */
     }
 
     .contact-info p {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        margin: 0;
-        word-wrap: break-word;
+        flex-direction: column; /* Susun teks kontak secara vertikal */
+        align-items: center; /* Pastikan teks rata tengah */
+        gap: 10px; /* Tambahkan jarak antar teks */
+        margin: 0; /* Hilangkan margin berlebih */
+        word-wrap: break-word; /* Pecah teks jika terlalu panjang */
     }
 
     /* Navigasi - Footer Center */
@@ -666,13 +666,13 @@ section .btn:hover {
     }
 
     .footer-center ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        flex-direction: column; /* Susun navigasi secara vertikal */
+        align-items: center; /* Navigasi rata tengah */
+        gap: 15px; /* Tambahkan jarak antar link */
     }
 
     .footer-center ul li {
-        margin: 5px 0;
+        margin: 5px 0; /* Jarak antar item navigasi */
     }
 
     .footer-center h4 {
@@ -682,16 +682,16 @@ section .btn:hover {
     /* Ikon Sosial - Footer Right */
     .footer-right {
         order: 3;
-        margin-top: 10px;
+        margin-top: 10px; /* Tambahkan margin atas jika diperlukan */
     }
 
     .footer-right .social-icons {
-        justify-content: center;
-        gap: 15px;
+        justify-content: center; /* Ikon sosial di tengah */
+        gap: 15px; /* Tambahkan jarak antar ikon */
     }
 
     .footer {
-        padding-bottom: 20px;
+        padding-bottom: 20px; /* Tambahkan padding bawah agar tidak terlalu rapat */
     }
 }
 

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Libraries</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/disease-styles.css}">
+</head>
+<body>
+<!-- Navbar -->
+<header class="navbar">
+    <div class="container">
+        <a th:href="@{|/|}" class="logo">Neochloris</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a th:href="@{|/#home|}">Home</a></li>
+                <li><a th:href="@{|/#about|}">About</a></li>
+                <li><a th:href="@{/disease-library}">Diseases</a></li>
+                <li><a th:href="@{|/#analysis|}">Analysis</a></li>
+                <li><a th:href="@{|/#contact|}">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- Disease Library Section -->
+<section id="disease-library" class="disease-library">
+    <div class="container">
+        <h1>Disease Library</h1>
+        <p>Explore a curated library of plant diseases to identify and understand the conditions affecting your crops. Gain insights into common symptoms, preventive measures, and solutions for healthier plants.</p>
+        <div class="grid-container">
+            <!-- card 1 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 2 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 3 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 4 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 5 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 6 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 7 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 8 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 9 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 10 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 11 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 12 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 13 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 14 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 15 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 16 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 17 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 18 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 19 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 20 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 21 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 22 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 23 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 24 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 25 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 26 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 27 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 28 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 29 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 30 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 31 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 32 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 33 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 34 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 35 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 36 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 37 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+            <!-- card 38 -->
+            <div class="card" onclick="toggleDescription(this)">
+                <div class="card-content">
+                    <div class="image-container">
+                        <img src="images/apple_scab.jpg" alt="Apple Scab">
+                    </div>
+                    <div class="text-content">
+                        <h3>Apple Scab</h3>
+                    </div>
+                </div>
+                <div class="description-section" style="display: none;">
+                    <h4>Description</h4>
+                    <p>
+                        This disease affects apple leaves and fruits, causing significant quality and yield loss. Proper pruning and fungicide application can help manage this condition.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Bagian Kiri: Informasi Kontak -->
+        <div class="footer-left">
+            <h3>Neochloris</h3>
+            <p>
+                Neochloris is a plant disease detection platform providing accurate and reliable diagnoses for healthier plants.
+            </p>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> info@neochloris.com</p>
+                <p><i class="fas fa-phone"></i> +62 123 456 789</p>
+                <p><i class="fab fa-whatsapp"></i> +62 812 3456 7890</p>
+            </div>
+        </div>
+        <!-- Bagian Tengah: Navigasi -->
+        <div class="footer-center">
+            <h4>Navigation</h4>
+            <a th:href="@{|/|}" class="logo"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a th:href="@{|/#home|}">Home</a></li>
+                    <li><a th:href="@{|/#about|}">About</a></li>
+                    <li><a th:href="@{/disease-library}">Diseases</a></li>
+                    <li><a th:href="@{|/#analysis|}">Analysis</a></li>
+                    <li><a th:href="@{|/#contact|}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Bagian Kanan: Ikon Sosial Media -->
+        <div class="footer-right">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="https://github.com" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright -->
+    <p class="copyright">
+        © 2024 Neochloris. All Rights Reserved.
+    </p>
+</footer>
+<!-- JavaScript -->
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

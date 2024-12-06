@@ -25,12 +25,7 @@ public class PredictionWebController {
 
     @GetMapping("/")
     public String home() {
-        return "index";
-    }
-
-    @GetMapping("/disease-library")
-    public String diseaseLibrary() {
-        return "disease-library";
+        return "index"; // Nama template HTML untuk halaman utama
     }
 
     @PostMapping("/upload")
@@ -85,4 +80,8 @@ public class PredictionWebController {
         return descriptions.getOrDefault(label, "No additional information available for this label.");
     }
 
+    @GetMapping("/disease-library")
+    public String diseaseLibrary() {
+        return "disease-library";
+    }
 }

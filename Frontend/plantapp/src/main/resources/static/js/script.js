@@ -59,3 +59,28 @@ captureButton.addEventListener("click", () => {
     startCameraButton.style.display = "inline-block";
     captureButton.style.display = "none";
 });
+
+function toggleDescription(cardElement) {
+    // Dapatkan elemen card yang di-klik
+    const card = cardElement.closest('.card');
+    const description = card.querySelector('.description-section');
+
+    // Cek apakah deskripsi terlihat
+    const isVisible = description.style.display === 'block';
+
+    // Sembunyikan semua deskripsi di semua card
+    document.querySelectorAll('.card .description-section').forEach((desc) => {
+        desc.style.display = 'none';
+    });
+
+    // Tampilkan deskripsi hanya pada card yang di-klik
+    if (!isVisible) {
+        description.style.display = 'block';
+    }
+}
+
+
+
+
+
+
