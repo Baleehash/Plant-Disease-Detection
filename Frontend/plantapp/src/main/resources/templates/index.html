@@ -27,7 +27,7 @@
 <section id="home" class="hero">
     <div class="container">
         <h1>Keep Your Plants Thriving with Chloris</h1>
-        <p class="typing-effect">The ultimate tool for protecting your crops and ensuring healthy growth. Chloris helps you easily identify plant diseases and offers detailed analysis for better crop management. Stay ahead of plant health issues and optimize your farming success.</p>
+        <p class="typing-effect">The ultimate tool for protecting your crops and ensuring healthy growth. Neochloris helps you easily identify plant diseases and offers detailed analysis for better crop management. Stay ahead of plant health issues and optimize your farming success.</p>
         <a href="#home" class="btn">Get Started</a>
     </div>
 </section>
@@ -42,14 +42,14 @@
                 </div>
             </div>
             <div class="about-text">
-                <h2>About Chloris</h2>
+                <h2>About Neochloris</h2>
                 <p>
-                    Chloris is an innovative plant analysis tool designed to help farmers and gardeners detect and address
-                    plant diseases efficiently. By combining state-of-the-art technology with user-friendly design, Chloris
+                    Neochloris is an innovative plant analysis tool designed to help farmers and gardeners detect and address
+                    plant diseases efficiently. By combining state-of-the-art technology with user-friendly design, Neochloris
                     ensures a healthier and more productive agricultural experience.
                 </p>
                 <p>
-                    Whether you're protecting your crops or nurturing your home garden, Chloris empowers you with the insights
+                    Whether you're protecting your crops or nurturing your home garden, Neochloris empowers you with the insights
                     needed to keep your plants thriving.
                 </p>
             </div>
@@ -130,18 +130,21 @@
                     <button type="submit" class="btn">Upload</button>
                 </form>
             </div>
-
-            <!-- Capture Feature -->
-            <div class="card">
-                <h3>Real-Time Capture</h3>
-                <p>Activate your device’s camera to capture live images of your plant for real-time analysis and feedback.</p>
-                <video id="video" autoplay style="display: none; border: 1px solid #ccc; margin-top: 15px;"></video>
-                <canvas id="canvas" style="display: none;"></canvas>
-                <div class="camera-buttons">
-                    <button id="startCamera" class="btn">Start Camera</button>
-                    <button id="stopCamera" class="btn" style="display: none;">Stop Camera</button>
-                    <button id="captureButton" class="btn" style="display: none;">Capture</button>
-                </div>
+            <!-- Capture Section -->
+            <div class="card card-fixed-height">
+                    <h3>Capture Image</h3>
+                    <p>Use your camera to capture a real-time image of your plant.</p>
+                    <video id="video" autoplay style="display: none; border: 1px solid #ccc;"></video>
+                    <canvas id="canvas" style="display: none;"></canvas>
+                    <div class="camera-buttons">
+                        <button id="startCamera" class="btn">Start Camera</button>
+                        <button id="stopCamera" class="btn" style="display: none;">Stop Camera</button>
+                        <button id="captureButton" class="btn" style="display: none;">Capture</button>
+                    </div>
+                    <form action="/capture" method="post" enctype="multipart/form-data" id="captureForm">
+                        <input type="file" name="file" id="hiddenFileInput" style="display: none;" required>
+                        <button type="submit" style="display: none;" id="submitCapture">Submit</button>
+                    </form>
             </div>
         </div>
     </div>

@@ -7,11 +7,6 @@
 <h1>Prediction Result for Uploaded Image</h1>
 
 <div>
-    <h2>Uploaded Image:</h2>
-    <img th:src="@{'/images/' + ${uploadedImageName}}" alt="Uploaded Image" style="max-width: 300px;">
-</div>
-
-<div>
     <h2>Prediction Details:</h2>
     <p><strong>Label:</strong> <span th:text="${label}"></span></p>
     <p><strong>Confidence:</strong> <span th:text="${confidence}"></span></p>
