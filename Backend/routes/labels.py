@@ -5,7 +5,7 @@ from fastapi import APIRouter
 router = APIRouter()
 
 # Path ke file label
-LABEL_PATH = "class_labels.json"
+LABEL_PATH = "assets/class_labels.json"
 
 # Memuat label
 def load_labels(json_path):

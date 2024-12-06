@@ -13,7 +13,7 @@ router = APIRouter()
 
 # Path ke model dan file label
 MODEL_PATH = "models/plant_disease_model.h5"
-LABEL_PATH = "class_labels.json"
+LABEL_PATH = "assets/class_labels.json"
 UPLOAD_FOLDER = "uploads"
 
 # Konfigurasi database
