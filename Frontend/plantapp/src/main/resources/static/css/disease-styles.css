@@ -19,7 +19,8 @@ html, body {
     padding: 1rem 0;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    width: 100%;
+    z-index: 9999;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
 }
@@ -28,6 +29,7 @@ html, body {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Container */
 .navbar .container {
     display: flex;
     justify-content: space-between;
@@ -37,6 +39,7 @@ html, body {
     padding: 0 20px;
 }
 
+/* Logo */
 .navbar .logo {
     color: #1F4529;
     font-size: 1.8rem;
@@ -45,10 +48,12 @@ html, body {
     letter-spacing: 1px;
 }
 
+/* Nav Links */
 .navbar .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
+    position: relative;
 }
 
 .navbar .nav-links a {
@@ -56,14 +61,44 @@ html, body {
     text-decoration: none;
     font-size: 1rem;
     padding: 5px 10px;
-    transition: all 0.3s;
-    font-weight: 600; /* Menambah ketebalan font untuk tampilan lebih berani */
+    transition: all 0.3s ease;
+    font-weight: 600;
+    position: relative;
 }
 
-.navbar .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    transform: translateY(-3px); /* Efek tombol melayang saat hover */
+/* Hover Effect: Underline */
+.navbar .nav-links a:hover::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #47A992; /* Warna garis saat hover */
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: 0; /* Tepat di bawah teks */
+    left: 0;
+}
+
+/* Default State */
+.navbar .nav-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #47A992;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+/* Aktif (Menu Halaman Aktif) */
+.navbar .nav-links li.active a {
+    color: #47A992; /* Warna teks untuk menu aktif */
+}
+
+.navbar .nav-links li.active a::after {
+    width: 100%;
 }
 
 .container {
@@ -262,7 +297,7 @@ html, body {
 
 /* Footer Global Style */
 .footer {
-    background-color: #264653;
+    background-color: #183D3D;
     color: #fff;
     font-family: 'Poppins', sans-serif;
     padding: 40px 20px;
@@ -394,6 +429,15 @@ html, body {
     color: #e0e0e0;
     border-top: 1px solid #3a5d5d;
     padding-top: 10px;
+}
+
+.copyright a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+.copyright a:hover {
+    text-decoration: underline; /* Opsional: Tambahkan efek hover */
 }
 
 /* Responsif */

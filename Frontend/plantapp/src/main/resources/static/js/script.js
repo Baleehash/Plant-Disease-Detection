@@ -6,6 +6,51 @@ const canvas = document.getElementById("canvas");
 const submitCapture = document.getElementById("submitCapture");
 const hiddenFileInput = document.getElementById("hiddenFileInput");
 
+//navbar
+const navLinks = document.querySelectorAll('.nav-links li a');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+        // Hapus kelas aktif dari semua item
+        navLinks.forEach(item => item.parentElement.classList.remove('active'));
+        // Tambahkan kelas aktif ke item yang diklik
+        this.parentElement.classList.add('active');
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const heroSection = document.querySelector('.hero');
+
+    // Tambahkan lazy load setelah page load
+    const lazyLoadHeroBg = () => {
+        heroSection.setAttribute('data-bg-loaded', 'true');
+    };
+
+    setTimeout(lazyLoadHeroBg, 200); // Tunda untuk memastikan lazy load
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const textElement = document.getElementById("heroText");
+    const text = "Keep Your Plants Thriving with Neochloris";
+    const baseSpeed = 80;
+    const variationSpeed = 40;
+
+    let index = 0;
+
+    function typeEffect() {
+        if (index < text.length) {
+            textElement.textContent += text.charAt(index);
+            index++;
+            const typingSpeed =
+                baseSpeed + Math.random() * variationSpeed - variationSpeed / 2;
+            setTimeout(typeEffect, typingSpeed);
+        }
+    }
+
+    typeEffect();
+});
+
 let stream;
 
 // Start Camera
@@ -79,6 +124,22 @@ function toggleDescription(cardElement) {
     }
 }
 
+// Dapatkan elemen tombol
+const topButton = document.getElementById('topButton');
+
+// Tampilkan tombol ketika halaman di-scroll ke bawah
+window.onscroll = function () {
+    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+        topButton.classList.add('show'); // Tambahkan class show
+    } else {
+        topButton.classList.remove('show'); // Hilangkan class show
+    }
+};
+
+// Fungsi untuk menggulir kembali ke atas
+topButton.onclick = function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
 
 
