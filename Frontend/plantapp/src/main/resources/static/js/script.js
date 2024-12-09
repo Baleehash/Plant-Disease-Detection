@@ -136,6 +136,16 @@ window.onscroll = function () {
     }
 };
 
+//testimonials
+
+
+// FAQ toggle logic
+document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+        item.classList.toggle('active');
+    });
+});
+
 // Fungsi untuk menggulir kembali ke atas
 topButton.onclick = function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });

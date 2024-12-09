@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plant Disease Detection</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
@@ -65,43 +67,43 @@
         </p>
         <div class="grid-container">
             <div class="card">
-                <img src="images/apple_scab.jpg" alt="Apple Scab">
+                <img src="images/disease/apple_scab.jpg" alt="Apple Scab">
                 <h3>Apple Scab</h3>
                 <p>A fungal disease affecting apple trees, causing dark spots on leaves and fruits.</p>
             </div>
             <div class="card">
-                <img src="images/black_rot.jpeg" alt="Black Rot">
-                <h3>Black Rot</h3>
+                <img src="images/disease/black-rot-app.jpg" alt="Black Rot">
+                <h3>Apple Black Rot</h3>
                 <p>A common apple disease caused by fungi, leading to fruit decay and leaf discoloration.</p>
             </div>
             <div class="card">
-                <img src="images/CAR_LG.jpg" alt="Cedar Apple Rust">
+                <img src="images/disease/CAR_LG.jpg" alt="Cedar Apple Rust">
                 <h3>Cedar Apple Rust</h3>
                 <p>A fungal disease requiring junipers and apple trees, causing yellow-orange spots on leaves.</p>
             </div>
             <div class="card">
-                <img src="images/Healthy_apple.jpg" alt="Healthy Apple">
+                <img src="images/disease/Healthy_apple.jpg" alt="Healthy Apple">
                 <h3>Healthy Apple</h3>
                 <p>Healthy apple trees with no visible signs of disease or pest damage.</p>
             </div>
             <div class="card">
-                <img src="images/Blueberry_healthy.jpg" alt="Healthy Blueberry">
+                <img src="images/disease/Blueberry_healthy.jpg" alt="Healthy Blueberry">
                 <h3>Healthy Blueberry</h3>
                 <p>Blueberry plants showing no signs of disease, ensuring a bountiful harvest.</p>
             </div>
             <div class="card">
-                <img src="images/mildew-pumpkin-leaves.webp" alt="Powdery Mildew">
-                <h3>Powdery Mildew</h3>
+                <img src="images/disease/powdery-tcherry.webp" alt="Powdery Mildew">
+                <h3>Cherry Powdery Mildew</h3>
                 <p>A fungal disease affecting cherries, characterized by white powdery spots on leaves.</p>
             </div>
             <div class="card">
-                <img src="images/cherry-healthy-leaves.jpg" alt="Healthy Cherry">
+                <img src="images/disease/cherry-healthy-leaves.jpg" alt="Healthy Cherry">
                 <h3>Healthy Cherry</h3>
                 <p>Cherry trees in optimal health with glossy green leaves and vibrant fruits.</p>
             </div>
             <div class="card">
-                <img src="images/grey_leaf.jpeg" alt="Gray Leaf Spot">
-                <h3>Gray Leaf Spot</h3>
+                <img src="images/disease/corn-grey-leaf.jpeg" alt="Gray Leaf Spot">
+                <h3>Corn Gray Leaf Spot</h3>
                 <p>A fungal disease affecting maize, causing gray spots on leaves and reducing yield.</p>
             </div>
         </div>
@@ -144,6 +146,108 @@
                     <input type="file" name="file" id="hiddenFileInput" style="display: none;" required>
                     <button type="submit" style="display: none;" id="submitCapture">Submit</button>
                 </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonials Section -->
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="card-front">
+                    <img src="images/user1.jpg" alt="User 1">
+                </div>
+                <div class="card-back">
+                    <p>"Thanks to this app, my chili plants thrive without pests. A perfect tool for maintaining the quality of my Los Pollos Hermanos secret recipe."</p>
+                    <h4>Gustavo Fring</h4>
+                    <span>Head of Los Pollos Hermanos</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="card-front">
+                    <img src="images/user2.jpg" alt="User 2">
+                </div>
+                <div class="card-back">
+                    <p>"Even superheroes need help sometimes. This app makes my peanuts stronger than ever. A flawless tool for flawless results."</p>
+                    <h4>Homelander</h4>
+                    <span>Peanut Perfectionist</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="card-front">
+                    <img src="images/user3.jpg" alt="User 3">
+                </div>
+                <div class="card-back">
+                    <p>"Santai, santai, rek! Aplikasi iki top banget! Witing-witingku saiki tambah sehat kabeh. Tinggal foto wae, terus aplikasi iki sing ngurus. Ora usah ribet, sing penting santai!"</p>
+                    <h4>Raden Darren Watkins IV</h4>
+                    <span>Javanese Raiden</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="card-front">
+                    <img src="images/user4.jpg" alt="User 4">
+                </div>
+                <div class="card-back">
+                    <p>""Yo, this app is lit! My tobacco fields are fresher than ever, and the vibes? Immaculate. It's like the chillest assistant for real farmers."</p>
+                    <h4>Snoop Dogg</h4>
+                    <span>Tobacco Farmer</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQs Section -->
+<section class="faqs" id="faqs">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How does the plant disease detection feature work?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The app uses AI to analyze images of your plants and identify potential diseases.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is the app free to use?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, the basic features are free. Premium features are available with a subscription.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I use the app offline?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Some features require an internet connection, but offline functionality is available for certain tools.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What type of plants can the app detect diseases for?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The app supports a wide range of plants, including crops, flowers, and houseplants.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is my data safe with the app?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we prioritize user privacy and secure all data with industry-standard encryption.</p>
+                </div>
             </div>
         </div>
     </div>
