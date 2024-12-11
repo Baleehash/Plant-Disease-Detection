@@ -174,7 +174,9 @@ body, html {
     margin-bottom: 20px;
     white-space: nowrap;
     overflow: hidden;
-    color: #1F4529; /* Pastikan warna teks terlihat */
+    color: #1F4529;
+    animation: fadeIn 2s forwards;
+    opacity: 0;
 }
 
 .hero p {
@@ -184,19 +186,9 @@ body, html {
     margin-bottom: 10px;
     overflow: hidden;
     text-overflow: ellipsis; /* Add ellipsis if text overflows */
-    opacity: 0;
-    animation: fadeIn 4s ease-in forwards; /* Animasi selama 4 detik */
     color: #1F4529; /* Warna teks */
-}
-
-/* Animasi Keyframes */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+    animation: fadeIn 2s forwards; /* Animasi selama 2 detik */
+    opacity: 0; /* Mulai tidak terlihat */
 }
 
 .hero .btn {
@@ -211,14 +203,23 @@ body, html {
     cursor: pointer;
     opacity: 0; /* Tombol tidak terlihat pada awalnya */
     transform: translateY(20px); /* Geser sedikit ke bawah */
-    animation: fadeInBtn 2s ease-in 2s forwards; /* Mulai animasi setelah 2 detik */
+    animation: fadeInBtn 2s forwards; /* Animasi selama 2 detik */
 }
 
-/* Animasi tombol */
+/* Animasi Keyframes */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 @keyframes fadeInBtn {
     0% {
         opacity: 0;
-        transform: translateY(20px); /* Mulai dari posisi bawah */
+        transform: translateY(20px);
     }
     100% {
         opacity: 1;
@@ -226,13 +227,13 @@ body, html {
     }
 }
 
+/* Tombol Hover */
 .hero .btn:hover {
     background-color: #47A992;
     color: #ffffff;
     border: 2px solid #47A992;
     box-shadow: 0 0 10px #47A992, 0 0 20px #47A992;
 }
-
 
 /* Sections */
 section {
@@ -245,7 +246,6 @@ section h2 {
     color: #47A992;
     margin-bottom: 20px;
 }
-
 
 /* Button Styling */
 section .btn {

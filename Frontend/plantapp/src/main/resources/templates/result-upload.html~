@@ -1,22 +1,107 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Prediction Result - Upload</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" th:href="@{/css/result.css}">
 </head>
-<body>
-<h1>Prediction Result for Uploaded Image</h1>
+<!-- Navbar -->
+<header class="navbar">
+    <div class="container">
+        <a th:href="@{|/|}" class="logo">Neochloris</a>
+        <nav>
+            <ul class="nav-links">
+                <li class="active"><a th:href="@{|/#home|}">Home</a></li>
+                <li><a th:href="@{|/#about|}">About</a></li>
+                <li><a th:href="@{/disease-library}">Diseases</a></li>
+                <li><a th:href="@{|/#analysis|}">Analysis</a></li>
+                <li><a th:href="@{|/#contact|}">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<h1>Prediction Result</h1>
+<div class="result-container">
+    <!-- Main Card -->
+    <div class="result-card">
+        <!-- Uploaded Image -->
+        <div class="uploaded-image">
+            <h2>Uploaded Image:</h2>
+            <img th:src="plantapp/src/main/resources/static/saved-pictures/${uploadedFileName}" alt="Uploaded Image">
+        </div>
 
-<div>
-    <h2>Prediction Details:</h2>
-    <p><strong>Label:</strong> <span th:text="${label}"></span></p>
-    <p><strong>Confidence:</strong> <span th:text="${confidence}"></span></p>
+        <!-- Prediction Details -->
+        <div class="prediction-details">
+            <h2>Prediction Details:</h2>
+            <p><strong>Label:</strong> <span th:text="${label}"></span></p>
+            <p><strong>Confidence:</strong></p>
+            <div class="confidence-bar">
+                <div class="confidence-fill" th:style="'width: ' + ${confidence} + '%'"></div>
+            </div>
+            <p><span th:text="${confidence}"></span>%</p>
+            <div class="disease-description">
+                <h3>About the Disease:</h3>
+                <p th:text="${diseaseDescription}"></p>
+            </div>
+        </div>
+    </div>
+    <!-- Buttons -->
+    <div class="result-actions">
+        <a th:href="@{|/#analysis|}" class="btn try-again">Try Another Prediction</a>
+        <a th:href="@{/disease-library}" class="btn learn-more">Learn More</a>
+    </div>
 </div>
-
-<div>
-    <h3>Description:</h3>
-    <p th:text="${description}"></p>
-</div>
-
-<a href="/">Back to Home</a>
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Bagian Kiri: Informasi Kontak -->
+        <div class="footer-left">
+            <h3>Neochloris</h3>
+            <p>
+                Neochloris is a plant disease detection platform providing accurate and reliable diagnoses for healthier plants.
+            </p>
+            <div class="contact-info" id="contact">
+                <p><i class="fas fa-envelope"></i> iqbamaulana6069@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +62 813 2189 6707</p>
+                <p><i class="fab fa-whatsapp"></i> +62 813 2189 6707</p>
+            </div>
+        </div>
+        <!-- Bagian Tengah: Navigasi -->
+        <div class="footer-center">
+            <h4>Navigation</h4>
+            <a th:href="@{|/|}" class="logo"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a th:href="@{|/#home|}">Home</a></li>
+                    <li><a th:href="@{|/#about|}">About</a></li>
+                    <li><a th:href="@{/disease-library}">Diseases</a></li>
+                    <li><a th:href="@{|/#analysis|}">Analysis</a></li>
+                    <li><a th:href="@{|/#contact|}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Bagian Kanan: Ikon Sosial Media -->
+        <div class="footer-right">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="https://github.com/Baleehash" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/baleehash/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/Baleeehash" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright -->
+    <p class="copyright">
+        © 2024 Neochloris. All Rights Reserved. Designed and Developed by
+        <a href="https://github.com/Baleehash">Baleehash</a>
+    </p>
+</footer>
 </body>
 </html>
