@@ -38,39 +38,45 @@ public class PredictionWebController {
 
     @PostMapping("/upload")
     public String uploadImage(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
-        // Simpan gambar yang diunggah dengan nama unik
         String uploadedFileName = "(uploaded)" + file.getOriginalFilename();
         Path uploadPath = Paths.get("plantapp/src/main/resources/static/saved-pictures/" + uploadedFileName);
         Files.write(uploadPath, file.getBytes());
 
-        // Prediksi
         PredictionResult result = predictionService.uploadImage(file);
-
-        // Format label untuk deskripsi
         String formatLabel = formatLabel(result.getLabel());
         String description = descriptionService.getDescription(formatLabel);
+        String treatment = descriptionService.getTreatment(formatLabel);
 
-        // Tambahkan data untuk ditampilkan di result-upload.html
+
         redirectAttributes.addFlashAttribute("label", formatLabel);
         redirectAttributes.addFlashAttribute("confidence", result.getConfidence());
         redirectAttributes.addFlashAttribute("imagePath", "plantapp/src/main/resources/static/saved-pictures/" + uploadedFileName);
         redirectAttributes.addFlashAttribute("diseaseDescription", description);
+        redirectAttributes.addFlashAttribute("treatment", treatment);
 
         return "redirect:/result-upload";
     }
 
     @GetMapping("/result-upload")
-    public String showResultForUpload(@ModelAttribute("label") String label, Model model) {
-        // Format label jika belum diformat
+    public String showResultForUpload(@ModelAttribute("label") String label, Model model)  {
+        // Format label sesuai kebutuhan
         String formattedLabel = formatLabel(label);
-        String description = descriptionService.getDescription(formattedLabel);
 
-        // Tambahkan data ke model
+        // Ambil data deskripsi, perawatan, dan gambar
+        String description = descriptionService.getDescription(formattedLabel);
+        String treatment = descriptionService.getTreatment(formattedLabel);
+        String imagePath = descriptionService.findDiseaseImage(formattedLabel);
+
+        // Tambahkan data ke model untuk ditampilkan di halaman
         model.addAttribute("diseaseDescription", description);
         model.addAttribute("formattedLabel", formattedLabel);
+        model.addAttribute("treatment", treatment);
+        model.addAttribute("imagePath", imagePath);
 
+        // Arahkan ke halaman result-upload
         return "result-upload";
     }
+
 
     @PostMapping("/capture")
     public String captureImage(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
@@ -83,14 +89,16 @@ public class PredictionWebController {
         PredictionResult result = predictionService.captureImage(file);
 
         // Format label untuk deskripsi
-        String formattedLabel = formatLabel(result.getLabel());
-        String description = descriptionService.getDescription(formattedLabel);
+        String formatLabel = formatLabel(result.getLabel());
+        String description = descriptionService.getDescription(formatLabel);
+        String treatment = descriptionService.getTreatment(formatLabel);
 
         // Tambahkan data untuk ditampilkan di result-upload.html
-        redirectAttributes.addFlashAttribute("label", formattedLabel);
+        redirectAttributes.addFlashAttribute("label", formatLabel);
         redirectAttributes.addFlashAttribute("confidence", result.getConfidence());
         redirectAttributes.addFlashAttribute("imagePath", "plantapp/src/main/resources/static/saved-pictures/" + capturedFileName);
         redirectAttributes.addFlashAttribute("diseaseDescription", description);
+        redirectAttributes.addFlashAttribute("treatment", treatment);
 
         return "redirect:/result-capture";
     }
@@ -100,10 +108,14 @@ public class PredictionWebController {
         // Format label jika belum diformat
         String formattedLabel = formatLabel(label);
         String description = descriptionService.getDescription(formattedLabel);
+        String treatment = descriptionService.getTreatment(formattedLabel);
+        String imagePath = descriptionService.findDiseaseImage(formattedLabel);
 
         // Tambahkan data ke model
         model.addAttribute("diseaseDescription", description);
         model.addAttribute("formattedLabel", formattedLabel);
+        model.addAttribute("treatment", treatment);
+        model.addAttribute("imagePath", imagePath);
 
         return "result-capture";
     }

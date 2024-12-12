@@ -26,15 +26,15 @@
     <!-- Main Card -->
     <div class="result-card">
         <!-- Uploaded Image -->
-        <div class="uploaded-image">
-            <h2>Uploaded Image:</h2>
-            <img th:src="@{${imagePath}}" alt="Uploaded Image">
+        <div class="disease-image">
+            <h2>Disease Image</h2>
+            <img th:src="@{${imagePath}}" alt="disease-image">
         </div>
 
         <!-- Prediction Details -->
         <div class="prediction-details">
-            <h2>Prediction Details:</h2>
-            <p><strong>Label:</strong> <span th:text="${label}"></span></p>
+            <h2>Prediction Details</h2>
+            <p><strong>Diagnosis:</strong> <span th:text="${label}"></span></p>
             <p><strong>Confidence:</strong></p>
             <div class="confidence-bar">
                 <div class="confidence-fill" th:style="'width: ' + ${confidence} + '%'"></div>
@@ -43,6 +43,10 @@
             <div class="disease-description">
                 <h3>About the Disease:</h3>
                 <p th:text="${diseaseDescription}"></p>
+                <div>
+                    <h3>Treatment:</h3>
+                    <p th:text="${treatment}"></p>
+                </div>
             </div>
         </div>
     </div>
