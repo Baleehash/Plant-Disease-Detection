@@ -13,7 +13,7 @@ html, body {
     text-align: center;
 }
 
-/* Navbar */
+/* Navbar Base Styling */
 .navbar {
     background-color: #f9f9f9;
     padding: 1rem 0;
@@ -25,15 +25,10 @@ html, body {
     transition: all 0.3s ease-in-out;
 }
 
-.navbar:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Container */
 .navbar .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; /* Menjaga elemen sejajar secara vertikal */
     max-width: 1200px;
     margin: auto;
     padding: 0 20px;
@@ -48,39 +43,48 @@ html, body {
     letter-spacing: 1px;
 }
 
-/* Nav Links */
-.navbar .nav-links {
+/* Navigation Links */
+.nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 40px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
     position: relative;
 }
 
-.navbar .nav-links a {
+/* Hanya navigasi link, bukan tombol */
+.nav-links li:not(.auth-buttons) a {
     color: #1F4529;
     text-decoration: none;
     font-size: 1rem;
-    padding: 5px 10px;
-    transition: all 0.3s ease;
     font-weight: 600;
-    position: relative;
+    transition: color 0.3s ease;
 }
 
-/* Hover Effect: Underline */
-.navbar .nav-links a:hover::after {
+/* Hover Effect: Underline & Text Color */
+.nav-links li:not(.auth-buttons) a:hover {
+    color: #47A992; /* Warna teks saat hover */
+}
+
+.nav-links li:not(.auth-buttons) a:hover::after {
     content: '';
     display: block;
     width: 100%;
     height: 2px;
     background-color: #47A992; /* Warna garis saat hover */
-    transition: width 0.3s ease;
     position: absolute;
     bottom: 0; /* Tepat di bawah teks */
     left: 0;
+    transition: width 0.3s ease;
 }
 
 /* Default State */
-.navbar .nav-links a::after {
+.nav-links li:not(.auth-buttons) a::after {
     content: '';
     display: block;
     width: 0;
@@ -93,12 +97,53 @@ html, body {
 }
 
 /* Aktif (Menu Halaman Aktif) */
-.navbar .nav-links li.active a {
+.nav-links li.active:not(.auth-buttons) a {
     color: #47A992; /* Warna teks untuk menu aktif */
 }
 
-.navbar .nav-links li.active a::after {
+.nav-links li.active:not(.auth-buttons) a::after {
     width: 100%;
+}
+
+/* Hamburger Menu Icon */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #1F4529;
+    margin-left: auto;
+    z-index: 1000;
+}
+
+/* Responsive Styling */
+@media (max-width: 834px) {
+    .hamburger-menu {
+        display: block; /* Tampilkan ikon hamburger */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.95); /* Background transparan */
+        width: 100%;
+        height: 100vh;
+        padding: 2rem;
+        gap: 1.5rem;
+        transform: translateX(100%); /* Awalnya tersembunyi */
+        transition: transform 0.3s ease;
+        box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        visibility: hidden; /* Sembunyikan sebelum diaktifkan */
+        opacity: 0; /* Menghilangkan efek container terlihat */
+    }
+
+    .nav-links.active {
+        transform: translateX(0); /* Munculkan menu */
+        visibility: visible; /* Tampilkan saat aktif */
+        opacity: 1;
+    }
 }
 
 .container {

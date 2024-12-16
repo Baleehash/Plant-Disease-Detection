@@ -11,7 +11,15 @@
 <!-- Navbar -->
 <header class="navbar">
     <div class="container">
+        <!-- Logo -->
         <a th:href="@{|/|}" class="logo">Neochloris</a>
+
+        <!-- Hamburger Menu Icon -->
+        <div class="hamburger-menu">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <!-- Navigation Links -->
         <nav>
             <ul class="nav-links">
                 <li><a th:href="@{|/#home|}">Home</a></li>
@@ -698,7 +706,7 @@
             <h4>Navigation</h4>
             <a th:href="@{|/|}" class="logo"></a>
             <nav>
-                <ul class="nav-links">
+                <ul class="nav-links-footer">
                     <li><a th:href="@{|/#home|}">Home</a></li>
                     <li><a th:href="@{|/#about|}">About</a></li>
                     <li><a th:href="@{/disease-library}">Diseases</a></li>
@@ -729,7 +737,6 @@
         <a href="https://github.com/Baleehash">Baleehash</a>
     </p>
 </footer>
-<!-- JavaScript -->
 <script th:src="@{/js/script.js}"></script>
 </body>
 </html>

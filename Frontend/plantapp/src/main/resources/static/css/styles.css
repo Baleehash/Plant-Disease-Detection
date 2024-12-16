@@ -17,9 +17,10 @@ body, html {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+    scroll-behavior: smooth;
 }
 
-/* Navbar */
+/* Navbar Base Styling */
 .navbar {
     background-color: #f9f9f9;
     padding: 1rem 0;
@@ -31,11 +32,6 @@ body, html {
     transition: all 0.3s ease-in-out;
 }
 
-.navbar:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Container */
 .navbar .container {
     display: flex;
     justify-content: space-between;
@@ -54,39 +50,48 @@ body, html {
     letter-spacing: 1px;
 }
 
-/* Nav Links */
-.navbar .nav-links {
+/* Navigation Links */
+.nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 40px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
     position: relative;
 }
 
-.navbar .nav-links a {
+/* Hanya navigasi link, bukan tombol */
+.nav-links li:not(.auth-buttons) a {
     color: #1F4529;
     text-decoration: none;
     font-size: 1rem;
-    padding: 5px 10px;
-    transition: all 0.3s ease;
     font-weight: 600;
-    position: relative;
+    transition: color 0.3s ease;
 }
 
-/* Hover Effect: Underline */
-.navbar .nav-links a:hover::after {
+/* Hover Effect: Underline & Text Color */
+.nav-links li:not(.auth-buttons) a:hover {
+    color: #47A992;
+}
+
+.nav-links li:not(.auth-buttons) a:hover::after {
     content: '';
     display: block;
     width: 100%;
     height: 2px;
-    background-color: #47A992; /* Warna garis saat hover */
-    transition: width 0.3s ease;
+    background-color: #47A992;
     position: absolute;
-    bottom: 0; /* Tepat di bawah teks */
+    bottom: 0;
     left: 0;
+    transition: width 0.3s ease;
 }
 
 /* Default State */
-.navbar .nav-links a::after {
+.nav-links li:not(.auth-buttons) a::after {
     content: '';
     display: block;
     width: 0;
@@ -99,14 +104,57 @@ body, html {
 }
 
 /* Aktif (Menu Halaman Aktif) */
-.navbar .nav-links li.active a {
-    color: #47A992; /* Warna teks untuk menu aktif */
+.nav-links li.active:not(.auth-buttons) a {
+    color: #47A992;
 }
 
-.navbar .nav-links li.active a::after {
+.nav-links li.active:not(.auth-buttons) a::after {
     width: 100%;
 }
 
+/* Hamburger Menu Icon */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #1F4529;
+    margin-left: auto;
+    z-index: 1000;
+}
+
+/* Responsive Styling */
+@media (max-width: 834px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        width: 100%;
+        height: 100vh;
+        padding: 2rem;
+        gap: 1.5rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+/* Container */
 .container {
     margin-bottom: 90px;
     flex: 1
@@ -166,7 +214,7 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 1; /* Agar teks di atas overlay */
+    z-index: 1;
 }
 
 .hero h1 {
@@ -185,10 +233,10 @@ body, html {
     margin: auto;
     margin-bottom: 10px;
     overflow: hidden;
-    text-overflow: ellipsis; /* Add ellipsis if text overflows */
-    color: #1F4529; /* Warna teks */
-    animation: fadeIn 2s forwards; /* Animasi selama 2 detik */
-    opacity: 0; /* Mulai tidak terlihat */
+    text-overflow: ellipsis;
+    color: #1F4529;
+    animation: fadeIn 2s forwards;
+    opacity: 0;
 }
 
 .hero .btn {
@@ -201,9 +249,9 @@ body, html {
     color: #1F4529;
     border-radius: 25px;
     cursor: pointer;
-    opacity: 0; /* Tombol tidak terlihat pada awalnya */
-    transform: translateY(20px); /* Geser sedikit ke bawah */
-    animation: fadeInBtn 2s forwards; /* Animasi selama 2 detik */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInBtn 2s forwards;
 }
 
 /* Animasi Keyframes */
@@ -223,7 +271,7 @@ body, html {
     }
     100% {
         opacity: 1;
-        transform: translateY(0); /* Kembali ke posisi asli */
+        transform: translateY(0);
     }
 }
 
@@ -303,19 +351,18 @@ section .btn:hover {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 428px) {
     .hero {
         height: 70vh;
-        background-position: top;
     }
 
     .hero h1 {
-        font-size: 1.5rem;
+        font-size: 0.75rem;
     }
 
     .hero p {
-        font-size: 0.9rem;
-        max-width: 20%;
+        font-size: 0.55rem;
+        max-width: 40%;
     }
 
     .hero .btn {
@@ -546,15 +593,13 @@ section .btn:hover {
     margin-bottom: 20px;
     border-bottom: 2px solid #47A992;
     display: inline-block;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Grid Layout */
-.upload-capture-section .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    max-width: 1200px;
-    margin: auto;
+/* Glow Effect for Section Title */
+.upload-capture-section h2:hover {
+    color: #47A992;
+    text-shadow: 0 0 10px #47A992, 0 0 20px #47A992;
 }
 
 /* Grid Layout */
@@ -580,7 +625,13 @@ section .btn:hover {
     position: relative;
     overflow: hidden;
     min-height: 350px;
-    transition: height 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Glow Effect on Card Hover */
+.upload-capture-section .card:hover {
+    box-shadow: 0 0 15px rgba(71, 169, 146, 0.7), 0 0 30px rgba(71, 169, 146, 0.5);
+    transform: translateY(-10px);
 }
 
 /* Card Upload Fixed Height */
@@ -588,7 +639,31 @@ section .btn:hover {
     height: 350px;
 }
 
-/* Video Styling */
+/* Text Styling in Card */
+.upload-capture-section .card h3 {
+    font-size: 1.5rem;
+    color: #264653;
+    margin-bottom: 15px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.upload-capture-section .card h3:hover {
+    color: #1F4529;
+    text-shadow: 0 0 8px rgba(31, 69, 41, 0.8);
+}
+
+.upload-capture-section .card p {
+    font-size: 1rem;
+    color: #6b6b6b;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.upload-capture-section .card p:hover {
+    color: #47A992;
+}
+
+/* Glow Effect for Video */
 #video {
     display: none;
     width: 100%;
@@ -597,6 +672,13 @@ section .btn:hover {
     object-fit: contain;
     border-radius: 5px;
     margin-top: 10px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#video:hover {
+    border: 2px solid #47A992;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(71, 169, 146, 0.7);
 }
 
 /* Canvas Styling */
@@ -604,6 +686,12 @@ section .btn:hover {
     display: none;
     width: 100%;
     height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#canvas:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(71, 169, 146, 0.7);
 }
 
 /* Button Container Styling */
@@ -612,19 +700,6 @@ section .btn:hover {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-/* Text Styling */
-.upload-capture-section .card h3 {
-    font-size: 1.5rem;
-    color: #264653;
-    margin-bottom: 15px;
-}
-
-.upload-capture-section .card p {
-    font-size: 1rem;
-    color: #6b6b6b;
-    margin-bottom: 20px;
 }
 
 /* Button Styling */
@@ -639,14 +714,66 @@ section .btn:hover {
     font-size: 1rem;
     border: none;
     cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover Effect */
+/* Glow Effect on Button Hover */
 .upload-capture-section .btn:hover {
     background-color: #1F4529;
-    transform: translateY(3px);
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(71, 169, 146, 0.7);
 }
+
+/* Section Background Hover Effect */
+.upload-capture-section:hover {
+    background-color: #f8f8f8;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Section Title and Description */
+    .upload-capture-section h2 {
+        font-size: 2rem; /* Kurangi ukuran font */
+    }
+
+    .upload-capture-section .section-description {
+        font-size: 0.9rem; /* Ukuran lebih kecil */
+    }
+
+    /* Grid Layout */
+    .upload-capture-section .grid-container {
+        grid-template-columns: 1fr; /* Atur menjadi satu kolom */
+        gap: 20px; /* Kurangi jarak antar elemen */
+    }
+
+    /* Card Styling */
+    .upload-capture-section .card {
+        padding: 15px; /* Kurangi padding */
+        min-height: 300px; /* Kurangi tinggi minimum */
+    }
+
+    /* Button Styling */
+    .upload-capture-section .btn {
+        padding: 8px 10px; /* Kurangi padding */
+        font-size: 0.9rem; /* Kurangi ukuran font */
+    }
+
+    /* Video Styling */
+    #video {
+        max-height: 300px; /* Kurangi tinggi maksimal video */
+    }
+
+    /* Text Styling */
+    .upload-capture-section .card h3 {
+        font-size: 1.2rem; /* Kurangi ukuran font */
+    }
+
+    .upload-capture-section .card p {
+        font-size: 0.9rem; /* Kurangi ukuran font */
+    }
+}
+
 
 /* Testimonials Section */
 .testimonials {

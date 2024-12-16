@@ -2,6 +2,9 @@ package com.example.plantapp.service;
 
 import org.springframework.stereotype.Component;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -188,19 +191,20 @@ public class DiseaseDescriptionService {
         return treatment;
     }
 
-    public String findDiseaseImage(String label) {
-        String basePath = "src/main/resources/static/images/disease/";
-        String[] extensions = {".jpg", ".jpeg", ".png", ".webp"};
+    public String findDiseaseImage(String originalFileName, String type) {
+        // Folder dasar untuk gambar (uploaded atau captured)
+        String basePath = "src/main/resources/static/saved-pictures/" + type + "/";
+        String prefixedFileName = (type.equals("uploaded") ? "uploaded_" : "captured_") + originalFileName;
 
-        for (String ext : extensions) {
-            File file = new File(basePath + label + ext);
-            if (file.exists()) {
-                return "/images/disease/" + label + ext;
-            }
+        // Coba cari file berdasarkan nama asli dengan berbagai ekstensi
+        Path filePath = Paths.get(basePath + prefixedFileName);
+        System.out.println("Checking file: " + filePath.toAbsolutePath()); // Debugging
+        if (Files.exists(filePath)) {
+            // Mengembalikan path relatif untuk browser
+            return "/saved-pictures/" + type + "/" + prefixedFileName;
         }
-        // Gambar default jika tidak ditemukan
-        return "/images/disease/default.png";
+
+        // Gambar default jika file tidak ditemukan
+        return "/images/disease/apple_scab.jpg";
     }
-
-
 }

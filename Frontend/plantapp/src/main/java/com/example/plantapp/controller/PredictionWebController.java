@@ -3,6 +3,10 @@ package com.example.plantapp.controller;
 import com.example.plantapp.model.PredictionResult;
 import com.example.plantapp.service.DiseaseDescriptionService;
 import com.example.plantapp.service.PredictionService;
+import jakarta.annotation.Resource;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -37,35 +41,43 @@ public class PredictionWebController {
     }
 
     @PostMapping("/upload")
-    public String uploadImage(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
-        String uploadedFileName = "(uploaded)" + file.getOriginalFilename();
-        Path uploadPath = Paths.get("plantapp/src/main/resources/static/saved-pictures/" + uploadedFileName);
+    public String uploadImage(@RequestParam("file") MultipartFile file, Model model) throws IOException {
+        // Lakukan prediksi terlebih dahulu untuk mendapatkan label
+        PredictionResult result = predictionService.uploadImage(file);
+        String formatLabel = formatLabel(result.getLabel()); // Label hasil prediksi
+
+        // Bentuk nama file berdasarkan label hasil prediksi
+        String uploadedFileName = "uploaded_" + formatLabel.replaceAll("[^a-zA-Z0-9_-]", "_") + ".jpg"; // Hanya karakter aman
+        Path uploadPath = Paths.get("plantapp/src/main/resources/static/saved-pictures/uploaded/" + uploadedFileName);
+
+        // Simpan file yang diupload
         Files.write(uploadPath, file.getBytes());
 
-        PredictionResult result = predictionService.uploadImage(file);
-        String formatLabel = formatLabel(result.getLabel());
+        // Ambil deskripsi dan perawatan berdasarkan label
         String description = descriptionService.getDescription(formatLabel);
         String treatment = descriptionService.getTreatment(formatLabel);
 
+        // Tambahkan atribut untuk ditampilkan langsung di halaman yang sama
+        model.addAttribute("label", formatLabel);
+        model.addAttribute("confidence", result.getConfidence());
+        model.addAttribute("imagePath", "/saved-pictures/uploaded/" + uploadedFileName); // Path untuk ditampilkan di browser
+        model.addAttribute("diseaseDescription", description);
+        model.addAttribute("treatment", treatment);
 
-        redirectAttributes.addFlashAttribute("label", formatLabel);
-        redirectAttributes.addFlashAttribute("confidence", result.getConfidence());
-        redirectAttributes.addFlashAttribute("imagePath", "plantapp/src/main/resources/static/saved-pictures/" + uploadedFileName);
-        redirectAttributes.addFlashAttribute("diseaseDescription", description);
-        redirectAttributes.addFlashAttribute("treatment", treatment);
-
-        return "redirect:/result-upload";
+        // Kembalikan hasil langsung ke halaman result-upload tanpa redirect
+        return "result-upload";
     }
 
+
     @GetMapping("/result-upload")
-    public String showResultForUpload(@ModelAttribute("label") String label, Model model)  {
+    public String showResultForUpload(@ModelAttribute("label") String label, Model model) {
         // Format label sesuai kebutuhan
         String formattedLabel = formatLabel(label);
 
         // Ambil data deskripsi, perawatan, dan gambar
         String description = descriptionService.getDescription(formattedLabel);
         String treatment = descriptionService.getTreatment(formattedLabel);
-        String imagePath = descriptionService.findDiseaseImage(formattedLabel);
+        String imagePath = "/saved-pictures/uploaded/uploaded_" + formattedLabel.replaceAll("[^a-zA-Z0-9_-]", "_") + ".jpg";
 
         // Tambahkan data ke model untuk ditampilkan di halaman
         model.addAttribute("diseaseDescription", description);
@@ -77,41 +89,44 @@ public class PredictionWebController {
         return "result-upload";
     }
 
-
     @PostMapping("/capture")
-    public String captureImage(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
-        // Simpan gambar yang ditangkap
-        String capturedFileName = "(captured)" + file.getOriginalFilename();
-        Path capturePath = Paths.get("plantapp/src/main/resources/static/saved-pictures/" + capturedFileName);
-        Files.write(capturePath, file.getBytes());
+    public String captureImage(@RequestParam("file") MultipartFile file, Model model) throws IOException {
+        // Lakukan prediksi terlebih dahulu untuk mendapatkan label
+        PredictionResult result = predictionService.uploadImage(file);
+        String formatLabel = formatLabel(result.getLabel()); // Label hasil prediksi
 
-        // Prediksi
-        PredictionResult result = predictionService.captureImage(file);
+        // Bentuk nama file berdasarkan label hasil prediksi
+        String uploadedFileName = "captured_" + formatLabel.replaceAll("[^a-zA-Z0-9_-]", "_") + ".jpg";
+        Path uploadPath = Paths.get("plantapp/src/main/resources/static/saved-pictures/captured/" + uploadedFileName);
 
-        // Format label untuk deskripsi
-        String formatLabel = formatLabel(result.getLabel());
+        // Simpan file
+        Files.write(uploadPath, file.getBytes());
+
+        // Ambil deskripsi dan perawatan berdasarkan label
         String description = descriptionService.getDescription(formatLabel);
         String treatment = descriptionService.getTreatment(formatLabel);
 
-        // Tambahkan data untuk ditampilkan di result-upload.html
-        redirectAttributes.addFlashAttribute("label", formatLabel);
-        redirectAttributes.addFlashAttribute("confidence", result.getConfidence());
-        redirectAttributes.addFlashAttribute("imagePath", "plantapp/src/main/resources/static/saved-pictures/" + capturedFileName);
-        redirectAttributes.addFlashAttribute("diseaseDescription", description);
-        redirectAttributes.addFlashAttribute("treatment", treatment);
+        // Tambahkan atribut untuk ditampilkan langsung di halaman yang sama
+        model.addAttribute("label", formatLabel);
+        model.addAttribute("confidence", result.getConfidence());
+        model.addAttribute("imagePath", "/saved-pictures/captured/" + uploadedFileName);
+        model.addAttribute("diseaseDescription", description);
+        model.addAttribute("treatment", treatment);
 
-        return "redirect:/result-capture";
+        return "result-capture";
     }
 
     @GetMapping("/result-capture")
     public String showResultForCapture(@ModelAttribute("label") String label, Model model) {
-        // Format label jika belum diformat
+        // Format label sesuai kebutuhan
         String formattedLabel = formatLabel(label);
+
+        // Ambil data deskripsi, perawatan, dan gambar
         String description = descriptionService.getDescription(formattedLabel);
         String treatment = descriptionService.getTreatment(formattedLabel);
-        String imagePath = descriptionService.findDiseaseImage(formattedLabel);
+        String imagePath = "/saved-pictures/captured/captured_" + formattedLabel.replaceAll("[^a-zA-Z0-9_-]", "_") + ".jpg";
 
-        // Tambahkan data ke model
+        // Tambahkan data ke model untuk ditampilkan di halaman
         model.addAttribute("diseaseDescription", description);
         model.addAttribute("formattedLabel", formattedLabel);
         model.addAttribute("treatment", treatment);

@@ -342,6 +342,7 @@ h1 {
     }
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
     /* Result Container */

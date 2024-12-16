@@ -167,7 +167,7 @@ topButton.onclick = function () {
 // Initialize AOS library
 document.addEventListener("DOMContentLoaded", function () {
     AOS.init({
-        once: false,
+        once: true, // Animation occurs only once
         offset: 120, // Distance to start the animation
         duration: 800, // Default duration of animations
         easing: "ease-in-out", // Smooth easing
