@@ -19,12 +19,12 @@ Neochloris is a plant disease detection platform that helps farmers and gardener
 
 **Result for Upload**
 <p align="center">
-  <img  src="\Frontend\plantapp\src\main\resources\static\images\result-upload.png" width="1000">
+  <img  src="\Frontend\plantapp\src\main\resources\static\images\predict-result-upload.png" width="1000">
 </p>
 
 **Result for Real-time Capture**
 <p align="center">
-  <img  src="\Frontend\plantapp\src\main\resources\static\images\result-capture.png" width="1000">
+  <img  src="\Frontend\plantapp\src\main\resources\static\images\predict-result-capture.png" width="1000">
 </p>
 
 ## Technologies Used
