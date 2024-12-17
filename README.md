@@ -12,21 +12,53 @@ Neochloris is a plant disease detection platform that helps farmers and gardener
 - **Disease Library:** Provides a library of common plant diseases with detailed information on symptoms, prevention, and treatment.
 - **Real-time Plant Analysis:** Using the camera, users can instantly analyze their plants and receive results.
 
+**Disease Library**
+<p align="center">
+  <img  src="\Frontend\plantapp\src\main\resources\static\images\disease-library.png" width="1000">
+</p>
+
+**Result for Upload**
+<p align="center">
+  <img  src="\Frontend\plantapp\src\main\resources\static\images\result-upload.png" width="1000">
+</p>
+
+**Result for Real-time Capture**
+<p align="center">
+  <img  src="\Frontend\plantapp\src\main\resources\static\images\result-capture.png" width="1000">
+</p>
+
 ## Technologies Used
 This project utilizes various technologies across different layers:
 
 ### Backend
-- **Python:** For backend logic and deep learning model training.
-- **FastAPI:** For building the backend API to handle requests from the frontend.
-- **MySQL:** For storing disease data and user information.
-- **TensorFlow/Keras:** For deep learning model used to predict plant diseases.
-- **NumPy:** For handling numerical operations in model prediction.
+- [![Python][python-badge]][Python-url]
+- [![FastAPI][fastapi-badge]][FastAPI-url]
+- [![MySQL][mysql-badge]][MySQL-url]  
+- [![TensorFlow][tensorflow-badge]][TensorFlow-url] 
+
+[python-badge]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
+[Python-url]: https://www.python.org
+[fastapi-badge]: https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white
+[FastAPI-url]: https://fastapi.tiangolo.com
+[mysql-badge]: https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white
+[MySQL-url]: https://www.mysql.com
+[tensorflow-badge]: https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white
+[TensorFlow-url]: https://www.tensorflow.org
 
 ### Frontend
-- **JavaScript (with `getUserMedia` API):** For accessing the user's camera to capture plant images.
-- **HTML/CSS:** For building the structure and style of the web pages.
-- **Java:** For frontend application development.
-- **IntelliJ IDEA:** IDE used to run the frontend application.
+- [![JavaScript][javascript-badge]][JavaScript-url]
+- [![HTML][html-badge]][HTML-url]  
+- [![CSS][css-badge]][CSS-url]  
+- [![Java][java-badge]][Java-url]  
+
+[javascript-badge]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+[JavaScript-url]: https://www.javascript.com
+[html-badge]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[HTML-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
+[css-badge]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
+[java-badge]: https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white
+[Java-url]: https://www.oracle.com/java/
 
 ### Development Environment
 - **Apache:** Web server used to serve the frontend.
@@ -41,37 +73,20 @@ This project utilizes various technologies across different layers:
    Launch XAMPP and start both Apache and MySQL servers.
 
 2. **Backend Setup**  
-   - Open your terminal in VS Code and navigate to the `backend` directory.
+   - Open terminal in VS Code and navigate to the `backend` directory.
    - Run the backend application:
      ```bash
      python app.py
      ```
 
 3. **Frontend Setup**  
-   - Open your project in IntelliJ IDEA.
+   - Open project (Frontend Folder) in IntelliJ IDEA.
    - Run the frontend application using IntelliJ's "Run" button.
 
 ## Usage
 - Open the frontend application in your browser.
 - You can either upload an image of a plant or use your camera to scan the plant.
 - The system will analyze the image and provide a prediction on the plant's health, including possible diseases and their treatments.
-
-## Requirements
-- **Backend:**
-  - Python 3.x
-  - FastAPI
-  - MySQL
-  - TensorFlow
-  - NumPy
-
-- **Frontend:**
-  - JavaScript (with `getUserMedia` API)
-  - HTML/CSS
-
-- **Tools:**
-  - IntelliJ IDEA
-  - VS Code
-  - XAMPP (for Apache and MySQL)
 
 ## Stable Versions
 - Python: 3.8.x
