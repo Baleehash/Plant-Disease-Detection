@@ -193,7 +193,7 @@ public class DiseaseDescriptionService {
 
     public String findDiseaseImage(String originalFileName, String type) {
         // Folder dasar untuk gambar (uploaded atau captured)
-        String basePath = "src/main/resources/static/saved-pictures/" + type + "/";
+        String basePath = "plantapp/src/main/resources/static/saved-pictures/" + type + "/";
         String prefixedFileName = (type.equals("uploaded") ? "uploaded_" : "captured_") + originalFileName;
 
         // Coba cari file berdasarkan nama asli dengan berbagai ekstensi
