@@ -4,7 +4,7 @@ Neochloris is a plant disease detection platform that helps farmers and gardener
 
 **Demo Preview**
 <p align="center">
-  <img  src="images/Fullpage.png" width="1000">
+  <img  src="\Frontend\plantapp\src\main\resources\static\images\Fullpage.png" width="1000">
 </p>
 
 ## Features
