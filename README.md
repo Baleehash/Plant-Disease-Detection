@@ -2,6 +2,11 @@
 
 Neochloris is a plant disease detection platform that helps farmers and gardeners identify and address plant diseases using advanced deep learning models. The main feature of this project allows users to scan plants directly using their camera to diagnose potential diseases.
 
+**Demo Preview**
+<p align="center">
+  <img  src="images/Fullpage.png" width="1000">
+</p>
+
 ## Features
 - **Plant Disease Detection:** Users can upload images or use their camera to capture images of plants. The system analyzes these images to detect potential diseases.
 - **Disease Library:** Provides a library of common plant diseases with detailed information on symptoms, prevention, and treatment.
@@ -28,6 +33,7 @@ This project utilizes various technologies across different layers:
 - **MySQL (via XAMPP):** Database for storing plant disease information.
 - **VS Code:** IDE for backend development.
 - **IntelliJ IDEA:** IDE for frontend development.
+- **Postman**: For testing API endpoints.
 
 ## Setup and Installation
 
@@ -75,7 +81,7 @@ This project utilizes various technologies across different layers:
 - NumPy: 1.24.x
 
 ## License
-This project is open-source under the [MIT license](https://opensource.org/licenses/MIT).. Feel free to use it, modify it, or contribute.
+This project is open-source under the [MIT license](https://opensource.org/licenses/MIT).
 
 ---
 
