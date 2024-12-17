@@ -98,8 +98,4 @@ This project utilizes various technologies across different layers:
 ## License
 This project is open-source under the [MIT license](https://opensource.org/licenses/MIT).
 
----
-
-If you have any questions, feel free to reach out!
-
 
