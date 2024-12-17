@@ -4,7 +4,7 @@ Neochloris is a plant disease detection platform that helps farmers and gardener
 
 **Demo Preview**
 <p align="center">
-  <img  src="\Frontend\plantapp\src\main\resources\static\images\Fullpage.png" width="1000">
+  <img  src="\Frontend\plantapp\src\main\resources\static\images\index.png" width="1000">
 </p>
 
 ## Features
@@ -67,7 +67,7 @@ This project utilizes various technologies across different layers:
 - **IntelliJ IDEA:** IDE for frontend development.
 - **Postman**: For testing API endpoints.
 
-## Setup and Installation
+## Running the Application
 
 1. **Start Apache and MySQL**  
    Launch XAMPP and start both Apache and MySQL servers.
